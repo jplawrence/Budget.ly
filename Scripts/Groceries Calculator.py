@@ -30,11 +30,12 @@ nesquik = Product(4.5)
 pasta = Product(1.5)
 takeouts = Product(15)
 
-a = int(input("How many items would you like to add to your cart? "))
+
 items_in_cart = 0
 cart_total = []
+item = " "
 
-while items_in_cart < a:
+while item != "":
     item = input("Add item: ")
     if item == "eggs":
         items_in_cart += 1
@@ -139,3 +140,4 @@ while items_in_cart < a:
 
 print("Items in cart: " + str(items_in_cart))
 print("Total: $" + str(round(sum(cart_total))))
+
