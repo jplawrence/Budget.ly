@@ -121,29 +121,29 @@ if response_food == "y":
         "nesquik": 1.5,
         "takeouts": 15,
     }
+    factory = []
+    cart = []
 
-    total_prices = []
-
-    a = " "
-    while a != "":
-        item = input("Add Item: ")
-
-        if item in dictionary.keys():
-            item_price = dictionary.get(item)
-            total_prices.append(item_price)
-        else:
-            print("Sorry, we don't have that item")
-
+    a = ""
+    while a != " ":
+        item = input("Enter item: ")
         if item == "":
             break
 
-    print(f"""Order Summary:
-Total Items: {len(total_prices)}
-Total: ${sum(total_prices)}
-    """)
+        if item in dictionary:
+            cart.append(dictionary[item])
+        else:
+            if item.split(" ")[0] in dictionary:
+                a = item.split(" ")[0]
+                b = int(item.split(" ")[1])
+                factory.append(dictionary[a])
 
-    total_end_amount = sum(total_prices)
-    food = total_end_amount * 4
+                total = dictionary[a] * b
+                cart.append(total)
+            else:
+                print("No")
+
+    print(f"${sum(cart)}")
 
     list_c = []
 
